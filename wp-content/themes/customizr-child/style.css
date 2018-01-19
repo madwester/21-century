@@ -1,0 +1,23 @@
+/*
+ Theme Name:   Customizr Child
+ Theme URI:    http://example.com/
+ Description:  Child of Customizr 
+ Author:       Madeleine Westerstrom
+ Author URI:   http://example.com
+ Template:     customizr
+ Version:      1.0.0
+ License:      GNU General Public License v2 or later
+ Text Domain:  customizr-child
+*/
+
+/*ALL MY STYLES OVERWRITES HERE*/
+
+.less-margin {
+ margin: 10px;
+}
+.image {
+ margin: 10px 0;
+}
+.fw-btn-submit {
+ display: none;
+}
