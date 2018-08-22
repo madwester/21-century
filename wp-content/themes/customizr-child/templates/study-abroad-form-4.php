@@ -69,25 +69,85 @@ if ( apply_filters( 'czr_ms', false ) ):
                         </div>
                       </div>
         <div class="slide-content">
-            <h4>推荐院校:</h4>
             
-            <table>
+            <div class="container">
+    
+    <table>
         <tr>
           <th>校徽</th>
-          <th>名称</th>
-          <th>地区</th>
+          <th>学校</th>
+          <th>所在州</th>
         </tr>
-    <tr><td><img src="/uploads/image/20150311/1426072529.jpg"></td>
-    <td><a href="/S132">新南威尔士大学预科</td><td>新南威尔士州</td></tr
-    ><tr><td><img src="/uploads/image/20151013/1444698694.jpg"></td>
-    <td><a href="/S184">阿斯奎斯女子中学</td><td>新南威尔士州</td></tr>
-    <tr><td><img src="/uploads/image/20161209/1481270581.jpg"></td>
-    <td><a href="/S21">悉尼AIT科技设计学院</td><td>新南威尔士州</td></tr>
-    <tr><td><img src="/uploads/image/20150317/1426569258.jpg"></td>
-    <td><a href="/S8">ST SCHOLASTICA’S 天主教女校</td><td>新南威尔士州</td></tr>    
+     
+    <?php
+      include ("wp-content/themes/customizr-child/database.php");
+      
+      $query="SELECT * FROM wp_schoolinfo INNER JOIN wp_state WHERE wp_schoolinfo.state = wp_state.state AND wp_schoolinfo.state='1' AND school_type='9'";
+      $result3= $connection->query($query);
+      
+      
+      
+      while($userdata3 = $result3->fetch_assoc())
+      {
+        echo '<tr>';
+        echo '<td><a href="/',$userdata3["school_id"],'"><img class="result-logotype" src="/',$userdata3["pic_small"],'"></a></td>';
+        echo '<td><a href="/',$userdata3["school_id"],'">',$userdata3["school_name"],'</a></td>';
+        echo '<td>',$userdata3["state_name"],'</td>';
+        echo '</tr>';
+      }
+    ?>
     </table>
-    
 </div>
+
+          <?php
+           
+//	    $tStep=$_GET['Step'];
+		
+			
+		?>
+			
+		<?php
+			
+// 			switch ($tStep1) 
+// 			{
+			    
+// 			    case '1':
+			        
+// 			        $x=array("");
+			        
+// 			        break;
+// 			?>
+			
+    		<?php
+			
+// 			switch ($tStep2) 
+// 			{
+			    
+// 			    case '1':
+			        
+// 			        $x=array("");
+			        
+// 			        break;
+// 			?>
+            
+<!--            <table>-->
+<!--        <tr>-->
+<!--          <th>校徽</th>-->
+<!--          <th>名称</th>-->
+<!--          <th>地区</th>-->
+<!--        </tr>-->
+        
+<!--    <tr><td><img src="/uploads/image/20150311/1426072529.jpg"></td>-->
+<!--    <td><a href="/S132">新南威尔士大学预科</td><td>新南威尔士州</td></tr-->
+<!--    ><tr><td><img src="/uploads/image/20151013/1444698694.jpg"></td>-->
+<!--    <td><a href="/S184">阿斯奎斯女子中学</td><td>新南威尔士州</td></tr>-->
+<!--    <tr><td><img src="/uploads/image/20161209/1481270581.jpg"></td>-->
+<!--    <td><a href="/S21">悉尼AIT科技设计学院</td><td>新南威尔士州</td></tr>-->
+<!--    <tr><td><img src="/uploads/image/20150317/1426569258.jpg"></td>-->
+<!--    <td><a href="/S8">ST SCHOLASTICA’S 天主教女校</td><td>新南威尔士州</td></tr>    -->
+<!--    </table>-->
+    
+<!--</div>-->
 
             <!--<div class="container">-->
             <!--    <div class="row">-->
@@ -112,8 +172,9 @@ if ( apply_filters( 'czr_ms', false ) ):
             <!--            <p class="school-location">Location</p>-->
             <!--        </div>-->
             <!--    </div>-->
+            
             </div>
-            <a href="https://ct21-wordpress-lyf9375.c9users.io/study-abroad-program-step-3/"><button type="button" class="btn btn-slide">上一步</button></a>
+            <a href="/study-abroad-program-step-3/"><button type="button" class="btn btn-slide">上一步</button></a>
         </div>
     </div>
 </div>

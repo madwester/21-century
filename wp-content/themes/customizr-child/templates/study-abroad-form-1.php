@@ -68,10 +68,21 @@ if ( apply_filters( 'czr_ms', false ) ):
                             </div>
                         </div>
                       </div>
-        <div class="slide-content">
+                      
+      <!--    <div class="title-search">Degree</div>-->
+      <!--      <select id="degree" name="degree">-->
+        <!--<?php-->
+        <!--  while($userdata2 = $result2->fetch_assoc())-->
+        <!--  {-->
+        <!--      echo '<option value="',$userdata2["schooltype"],'">',$userdata2["typename"],'</option>';-->
+        <!--  }-->
+        <!--?>-->
+      <!--</select>-->
+                     
+        <!--<div class="slide-content">-->
         <h4>1. 请选择您的最高学历或目前就读年级：</h4>
-            <div class="choice-box">
-            <select>
+        <!--    <div class="choice-box">-->
+            <select id="Step1" name="Step1">
               <option value="0">--请选择您的学历--</option>
                 <option value="1">小学一年级</option>
                 <option value="2">小学二年级</option>
@@ -93,7 +104,9 @@ if ( apply_filters( 'czr_ms', false ) ):
                 <option value="18">硕士研究生毕业</option>
             </select>
                 </div>
-            <a href="https://ct21-wordpress-lyf9375.c9users.io/study-abroad-program-step-2/"><button type="button" class="btn btn-slide">下一步</button></a>
+        
+        
+            <a href="#"><button type="button" class="btn btn-slide" onclick="javascript:window.location='/study-abroad-program-step-2/?Step='+Step1.value;">下一步</button></a>
         </div>
     </div>
                   
@@ -195,3 +208,4 @@ do_action( '__before_main_wrapper' ); ##hook of the header with get_header
 </div><!-- //#main-wrapper -->
 
 <?php do_action( '__after_main_wrapper' );##hook of the footer with get_get_footer ?>
+

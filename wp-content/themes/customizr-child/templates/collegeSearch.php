@@ -58,6 +58,7 @@ if ( apply_filters( 'czr_ms', false ) ):
     include ("wp-content/themes/customizr-child/database.php");
     session_start();
     $query="SELECT * FROM wp_state";
+  
     $result= $connection->query($query);
     
     $query="SELECT * FROM wp_schooltype";
@@ -65,7 +66,7 @@ if ( apply_filters( 'czr_ms', false ) ):
     
     ?>
     
-    <div class="title-search">State</div>
+    <div class="title-search">所在州</div>
     <form action="/collegesearch" method="POST">
       <select id="states"  name="states">
         <?php
@@ -76,7 +77,7 @@ if ( apply_filters( 'czr_ms', false ) ):
         ?>
       </select>
       
-      <div class="title-search">Degree</div>
+      <div class="title-search">课程类别</div>
       <select id="degree" name="degree">
         <?php
           while($userdata2 = $result2->fetch_assoc())
@@ -90,9 +91,9 @@ if ( apply_filters( 'czr_ms', false ) ):
     
     <table>
         <tr>
-          <th>icon</th>
-          <th>name</th>
-          <th>state</th>
+          <th>校徽</th>
+          <th>学校</th>
+          <th>所在州</th>
         </tr>
      
     <?php
@@ -105,7 +106,7 @@ if ( apply_filters( 'czr_ms', false ) ):
       while($userdata3 = $result3->fetch_assoc())
       {
         echo '<tr>';
-        echo '<td><img class="result-logotype" src="/',$userdata3["pic_small"],'"></td>';
+        echo '<td><a href="/',$userdata3["school_id"],'"><img class="result-logotype" src="/',$userdata3["pic_small"],'"></a></td>';
         echo '<td><a href="/',$userdata3["school_id"],'">',$userdata3["school_name"],'</a></td>';
         echo '<td>',$userdata3["state_name"],'</td>';
         echo '</tr>';

@@ -3,6 +3,7 @@
 * Related posts wrapper template
 */
 ?>
+
 <?php if ( have_posts() ) : ?>
 <section class="post-related-articles czr-carousel <?php czr_fn_echo('element_class') ?>" <?php czr_fn_echo('element_attributes') ?>>
   <header class="row flex-row">

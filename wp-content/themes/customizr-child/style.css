@@ -144,7 +144,7 @@ STUDY ABROAD PAGE
 -----------------------------*/
 
 .result-logotype {
-    width: auto;
+    width: 150px;
     height: 80px;
 }
 .submit-btn {
@@ -167,4 +167,19 @@ FOOTER
 .footer__wrapper .widget__wrapper {
     padding-top: 1em;
     padding-bottom: 0;
+}
+
+/*-----------------------------
+
+FOOTER
+
+-----------------------------*/
+
+/*deleting the section related post*/
+.post-related-articles {
+    display: none!important;
+}
+/*deleting thethumbnail in the top of the post*/
+.entry-header {
+    display: none!important;
 }

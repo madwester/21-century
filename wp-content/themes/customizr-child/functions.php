@@ -27,27 +27,8 @@ add_action( 'wp_enqueue_scripts', 'my_scripts');
 //REMOVING FILTER TO AVOID WP TO ADD A PARAGRAPH TO THE EDITOR
 remove_filter( 'the_content', 'wpautop' );
 remove_filter( 'the_excerpt', 'wpautop' );
-
+	
 // Custom Post Type
-/*function services_custom_post() {
-	register_post_type( 'colleges',
-			array(
-			'labels' => array(
-					'name' => __( 'Colleges' ),
-					'singular_name' => __( 'College' ),
-			),
-			'public' => true,
-			'has_archive' => true,
-                'supports' => array(
-					'title',
-					'thumbnail',
-                    'editor'
-			)
-	   )
-    );
-}
-add_action( 'init', 'services_custom_post' );*/
-
 // remove width & height attributes from images
 //
 function remove_img_attr ($html)
@@ -57,3 +38,4 @@ function remove_img_attr ($html)
  
 add_filter( 'post_thumbnail_html', 'remove_img_attr' );
 ?>
+

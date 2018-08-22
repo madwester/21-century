@@ -70,21 +70,63 @@ if ( apply_filters( 'czr_ms', false ) ):
                       </div>
                       
             <h4>3. 请选择您想报读的区域:</h4>
-    <form action="/coursesearch" method="POST">
-      <select id="states"  name="states">
-        <?php 
-    include ("wp-content/themes/customizr-child/database.php");
-    session_start();
-    $query="SELECT * FROM wp_state";
-    $result= $connection->query($query);
+              <select id="Step1" name="Step1">
+              <option value="0">--请选择地区--</option>
+                <option value="1">新南威尔士州</option>
+                <option value="2">维多利亚州</option>
+                <option value="3">昆士兰州</option>
+                <option value="4">南澳</option>
+                <option value="5">北领地</option>
+                <option value="6">西澳</option>
+                <option value="7">堪培拉</option>
+                <option value="8">塔斯马尼亚</option>
+   
+    <!--// <form action="/coursesearch" method="POST">-->
+    <!--//   <select id="states"  name="states">-->
+        
+    //     <?php 
+    // include ("wp-content/themes/customizr-child/database.php");
+    // session_start();
+    // $query="SELECT * FROM wp_state";
+    // $result= $connection->query($query);
+    //     ?>
+        
+    //     <?php
+    //       while($userdata = $result->fetch_assoc())
+    //       {
+    //           echo '<option value="',$userdata["state"],'">',$userdata["state_name"],'</option>';
+    //       }
         ?>
         
-        <?php
-          while($userdata = $result->fetch_assoc())
-          {
-              echo '<option value="',$userdata["state"],'">',$userdata["state_name"],'</option>';
-          }
-        ?>
+        <!--<input class="submit-btn" type="submit">-->
+         
+        <!-- <table>-->
+        <!--<tr>-->
+        <!--  <th>icon</th>-->
+        <!--  <th>name</th>-->
+        <!--  <th>state</th>-->
+        <!--</tr>-->
+        
+    <!--    <?php-->
+    <!--  $state=$_POST["states"];-->
+    <!--  $type=$_POST["degree"];-->
+      
+    <!--  $query="SELECT * FROM wp_schoolinfo INNER JOIN wp_state WHERE wp_schoolinfo.state = wp_state.state AND wp_schoolinfo.state='$state' AND school_type='$type'";-->
+    <!--  $result3= $connection->query($query);-->
+      
+    <!--  while($userdata3 = $result3->fetch_assoc())-->
+    <!--  {-->
+    <!--    echo '<tr>';-->
+    <!--    echo '<td><img class="result-logotype" src="/',$userdata3["pic_small"],'"></td>';-->
+    <!--    echo '<td><a href="/',$userdata3["school_id"],'">',$userdata3["school_name"],'</a></td>';-->
+    <!--    echo '<td>',$userdata3["state_name"],'</td>';-->
+    <!--    echo '</tr>';-->
+    <!--  }-->
+    <!--?>-->
+    
+    
+      </table>
+      
         <!--<div class="slide-content">-->
         <!--    <h4>3. 请选择您想报读的区域:</h4>-->
         <!--    <div class="choice-box">-->
@@ -107,9 +149,9 @@ if ( apply_filters( 'czr_ms', false ) ):
 
             
             </div>
-            <a href="https://ct21-wordpress-lyf9375.c9users.io/study-abroad-program-step-2/"><button type="button" class="btn btn-slide">上一步</button></a>
-            <a href="https://ct21-wordpress-lyf9375.c9users.io/study-abroad-program-step-4/"><button type="button" class="btn btn-slide">下一步</button></a>
-        </div>
+            <a href="/study-abroad-program-step-2/"><button type="button" class="btn btn-slide" onclick="javascript:window.location='/study-abroad-program-step-2/?Step='+Step1.value;">上一步</button></a>
+            <a href="/study-abroad-program-step-4/"><button type="button" class="btn btn-slide" onclick="javascript:window.location='/study-abroad-program-step-2/?Step='+Step1.value;">下一步</button></a>
+        <!--</div>-->
     </div>
                   
                 </div>

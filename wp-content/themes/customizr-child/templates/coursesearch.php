@@ -91,69 +91,35 @@ if ( apply_filters( 'czr_ms', false ) ):
         ?>
       </select>
       
-      <script>
-        $(function(){
-            $('#main').change(function(){
-		    var pid=$(this).val();
-		    $.ajax({
-			   type :'POST',
-			   url  :'coursesearch.php?act=getSecField&type=1&pid='+pid,
-			   date :'',
-			   success:function(m){
-				 $('#narrowField option').remove();
-				 $('#narrowField').append(m);
-			   }
-		   });
-	   });
-   
-	   
-	   //
-	});
-
-      </script>
       
       <div>主要范围</div>
       <select id="main" name="main">
         <?php
           while($userdata3 = $result3->fetch_assoc())
           {
-            echo '<option value="',$userdata3["field_name"],'">',$userdata3["field_name"],'</option>';
+            echo '<option value="',$userdata3["field_id"],'">',$userdata3["field_name"],'</option>';
           }
         ?>
         
       </select>
       
-      <div>具体范围</div>
-      <select id="sub" name="sub">
-        <?php
-          $query="SELECT * FROM wp_field WHERE level=1 AND father='1'";
-          $result4= $connection->query($query);
-          while($userdata4 = $result4->fetch_assoc())
-          {
-              echo '<option value="',$userdata4["field_name"],'">',$userdata4["field_name"],'</option>';
-          }
-        ?>
-      </select>
       
       <input class="submit-btn"  type="submit" />
     </form>
     
     <table>
         <tr>
-          <th>icon</th>
-          <th>name</th>
-          <th>state</th>
+          <th>专业</th>
+          <th>学校</th>
         </tr>
      
     <?php
       $state=$_POST["states"];
       $type=$_POST["degree"];
-      $main=$_POST["main"];
+      $main='0'.$_POST["main"].'%';
       
-      $query="SELECT * FROM wp_field WHERE level=1 AND father='$main'";
-      $result4= $connection->query($query);
       
-      $query="SELECT * FROM wp_schoolinfo INNER JOIN wp_state WHERE wp_schoolinfo.state = wp_state.state AND wp_schoolinfo.state='$state' AND school_type='$type'";
+      $query="SELECT * FROM wp_degree INNER JOIN wp_schoolinfo WHERE wp_degree.school_id = wp_schoolinfo.school_id AND wp_schoolinfo.state='$state' AND wp_schoolinfo.school_type='$type' AND wp_degree.kcfw LIKE '$main'";
       $result5= $connection->query($query);
       
      
@@ -161,16 +127,20 @@ if ( apply_filters( 'czr_ms', false ) ):
       {
         
         echo '<tr>';
-        echo '<td><img src="/',$userdata5["pic_small"],'"></td>';
+        echo '<td>',$userdata5["title"],'</td>';
         echo '<td><a href="/',$userdata5["school_id"],'">',$userdata5["school_name"],'</td>';
-        echo '<td>',$userdata5["state_name"],'</td>';
         echo '</tr>';
       }
     ?>
     </table>
-    
-    
+  
 </div>
+
+
+
+
+
+
 
  <?php
                   /*

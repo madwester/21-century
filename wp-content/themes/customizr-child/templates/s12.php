@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: s191
+Template Name: s12
 */
 if ( apply_filters( 'czr_ms', false ) ):
     /*
